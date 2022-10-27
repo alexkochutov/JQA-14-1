@@ -1,6 +1,7 @@
 package ru.netology;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Manager {
     private Repository repo;
@@ -27,6 +28,12 @@ public class Manager {
     public Ticket[] sortByCost(String from, String to) {
         Ticket[] result = findAll(from, to);
         Arrays.sort(result);
+        return result;
+    }
+
+    public Ticket[] sortByDuration(String from, String to, Comparator<Ticket> comparator) {
+        Ticket[] result = findAll(from, to);
+        Arrays.sort(result, comparator);
         return result;
     }
 }
